@@ -34,6 +34,11 @@
 __pycache__/
 *.pyc
 
+# Environment and secrets
+.env
+.env.*
+*.env
+
 # Large directories
 data_sourcing/*/
 downloading_aligning_per_parliament/countries/*/downloaded_transcript/
