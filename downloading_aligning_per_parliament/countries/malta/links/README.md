@@ -1,0 +1,1 @@
+We maintain a one-to-one mapping between video links and their corresponding transcripts. The video ID is also used as the transcript ID.

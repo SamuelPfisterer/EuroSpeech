@@ -1,0 +1,112 @@
+*.tar
+
+# Audio files
+*.opus
+*.mp3
+*.wav
+*.wma
+*.aac
+*.flac
+*.m4a
+*.ogg
+
+# Video files
+*.webm
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.wmv
+*.flv
+*.m4v
+*.3gp
+*.3g2
+
+# Subtitle files
+*.srt
+*.sub
+*.smi
+*.ssa
+*.ass
+*.vtt
+
+# Document files
+*.pdf
+*.docx
+*.doc
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+
+# Text and HTML files
+*.html
+*.txt
+*.htm
+
+# Video/Audio temporary files
+*.part
+*.temp
+*.tmp
+
+# Downloaded audio directories
+downloaded_audio/
+temp_downloaded_audio/
+
+# Large data files
+*.csv
+*.json
+*.jsonl
+*.jsonl.gz
+*.jsonl.tar.gz
+*.jsonl.tar.bz2
+*.jsonl.tar.xz
+*.jsonl.tar.lzma
+*.jsonl.tar.7z
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Log files
+logs/
+*.log
+*.out
+*.err
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Other temp files
+gmon.out
+*.tmp
+*.bak
+*.swp
+
+
+# ignore pkl files (this is cache)
+*.pkl
+*.pkl.gz
+*.pkl.tar.gz
+*.pkl.tar.bz2
+*.pkl.tar.xz
+*.pkl.tar.lzma
+*.pkl.tar.7z

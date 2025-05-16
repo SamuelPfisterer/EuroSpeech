@@ -1,0 +1,1 @@
+For each transcript we can have multiple videos. for each video we have on transcript (only part of the transcript referst to the video)
