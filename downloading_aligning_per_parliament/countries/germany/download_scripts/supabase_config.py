@@ -7,10 +7,11 @@ from typing import Dict, Any, Optional
 from supabase import create_client, Client
 import logging
 
-# Supabase configuration
-SUPABASE_URL = "https://jyrujzmpicrqjcdwfwwr.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp5cnVqem1waWNycWpjZHdmd3dyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYwOTI3ODcsImV4cCI6MjA1MTY2ODc4N30.jzAOM2BFVAH25kZNfR4ownHYqRF_XXqpYq9DiERi-Lk"
+import os
 
+# Supabase configuration
+SUPABASE_URL = os.environ.get("SUPABASE_URL")
+SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
 # Constants
 PARLIAMENT_ID = 'germany'
 STATUS_PENDING = 'pending'

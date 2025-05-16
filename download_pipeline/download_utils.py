@@ -15,9 +15,14 @@ from datetime import datetime
 from supabase_config import start_download, complete_download, fail_download
 from playwright.sync_api import sync_playwright
 
-# Proxy configuration
-PROXY_URL = "http://island:ausgeTrickst=)@168.151.206.16:20000"
-PROXY_CONFIG = {'http': PROXY_URL, 'https': PROXY_URL}
+# Proxy configuration - Read from environment variable
+PROXY_URL_ENV = os.environ.get("PROXY_URL")
+PROXY_CONFIG = None
+if PROXY_URL_ENV:
+    PROXY_CONFIG = {'http': PROXY_URL_ENV, 'https': PROXY_URL_ENV}
+    logging.info(f"Using proxy: {PROXY_URL_ENV}")
+else:
+    logging.info("No PROXY_URL environment variable set. Proceeding without proxy.")
 
 try:
     from batch_storage import BatchStorageManager
@@ -336,41 +341,6 @@ def with_retry(func, args, column_info, session_id):
                 raise e
     
     return False
-
-def get_transcript_id(transcript_link):
-    """Extract the date/time identifier from transcript link."""
-    return transcript_link.split('/')[-1]
-
-def get_youtube_id(youtube_url):
-    """Extract video ID from YouTube URL."""
-    # Match patterns like v=XXXXX or /v/XXXXX
-    pattern = r'(?:v=|/v/|youtu\.be/)([^&\n?#]+)'
-    match = re.search(pattern, youtube_url)
-    return match.group(1) if match else None
-
-def get_bundestag_video_id(url):
-
-    """
-    Extract video ID from Bundestag media URL.
-    
-    Args:
-        url: Full URL from Bundestag mediathek
-        
-    Returns:
-        Video ID as string, or None if not found
-    """
-    try:
-        # Split on 'videoid=' and take the part after
-        video_id = url.split('videoid=')[1]
-        
-        # If there's a '#' or any other characters after the ID, remove them
-        if '#' in video_id:
-            video_id = video_id.split('#')[0]
-            
-        return video_id
-    except Exception:
-        return None
-
 
 
 # Download and process audio links
@@ -865,11 +835,14 @@ def download_and_process_dynamic_html(html_link: str, output_filename: str) -> b
 
         # Use Playwright to get the fully rendered page
         with sync_playwright() as p:
-            browser = p.chromium.launch(proxy={
-                "server": f"http://168.151.206.16:20000",
-                "username": "island",
-                "password": "ausgeTrickst=)"
-            })
+            browser_options = {}
+            if PROXY_CONFIG:
+                browser_options['proxy'] = {
+                    "server": PROXY_CONFIG['http'],
+                    # "username": os.environ.get("PROXY_USERNAME"), # Example if needed
+                    # "password": os.environ.get("PROXY_PASSWORD"), # Example if needed
+                }
+            browser = p.chromium.launch(**browser_options)
             page = browser.new_page()
             
             # Navigate and wait for network idle

@@ -1,0 +1,8 @@
+pandas
+tqdm
+yt-dlp
+requests
+playwright
+supabase
+curl_cffi
+python-dotenv 

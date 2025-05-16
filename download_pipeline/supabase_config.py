@@ -1,19 +1,19 @@
 """
-Supabase configuration and utility functions for the Italian Parliament download system.
+Supabase configuration and utility functions for the Finnish Parliament download system.
 """
 
+import os
 from datetime import datetime
 from typing import Dict, Any, Optional
 from supabase import create_client, Client
 import logging
 
-import os
-
-# Supabase configuration
+# Supabase configuration - Read from environment variables
 SUPABASE_URL = os.environ.get("SUPABASE_URL")
 SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
+
 # Constants
-PARLIAMENT_ID = 'sweden'
+PARLIAMENT_ID = 'finland'
 STATUS_PENDING = 'pending'
 STATUS_DOWNLOADING = 'downloading'
 STATUS_COMPLETED = 'completed'
@@ -31,7 +31,7 @@ class SupabaseClient:
     def __init__(self):
         if self._client is None:
             if not SUPABASE_URL or not SUPABASE_KEY:
-                raise ValueError("Supabase credentials not configured")
+                raise ValueError("Supabase credentials (SUPABASE_URL, SUPABASE_KEY) not configured. Please set them as environment variables or in a .env file.")
             self._client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
     @property
@@ -142,7 +142,7 @@ def get_download_status(session_id: str) -> Dict[str, Any]:
     return response.data if response else None
 
 def get_parliament_progress() -> Dict[str, Any]:
-    """Get the current progress for the Croatian parliament."""
+    """Get the current progress for the Greek parliament."""
     client = get_supabase()
     response = client.table('parliament_progress')\
         .select('*')\

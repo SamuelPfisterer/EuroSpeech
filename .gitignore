@@ -1,0 +1,48 @@
+# Data files
+*.csv
+*.json
+*.png
+*.parquet
+*.zip
+*.md
+
+# Large files
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.mp3
+*.wav
+*.mp4
+*.avi
+*.mov
+*.iso
+*.dmg
+*.pkg
+*.bin
+*.exe
+*.dll
+*.so
+*.dylib
+
+# IDE and system files
+.DS_Store
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+
+# Large directories
+data_sourcing/*/
+downloading_aligning_per_parliament/countries/*/downloaded_transcript/
+error_logs/
+**/screenshot.png
+
+# Keep specific files if needed
+!data_sourcing/README.md
+!downloading_aligning_per_parliament/README.md
+
+
+
