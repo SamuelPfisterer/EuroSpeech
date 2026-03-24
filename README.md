@@ -2,7 +2,7 @@
 
 This repository contains the complete toolkit and resources for the EuroSpeech project, aimed at creating large-scale multilingual speech datasets from parliamentary recordings. Our work introduces a scalable pipeline for dataset construction and the EuroSpeech corpus itself, which provides substantial high-quality speech data across numerous European languages.
 
-**For a detailed understanding of the project, the dataset, and the pipeline's impact, please refer to our paper: "EuroSpeech: A Multilingual Speech Corpus" (NeurIPS 2025 Submission).**
+**For a detailed understanding of the project, the dataset, and the pipeline's impact, please refer to our paper: ["EuroSpeech: A Multilingual Speech Corpus"](https://arxiv.org/abs/2510.00514) (NeurIPS 2025 Datasets and Benchmarks Track, Spotlight).**
 
 The EuroSpeech dataset, built using this toolkit, comprises over 61,000 hours of aligned speech segments from 22 European parliaments, with 19 languages exceeding 1,000 hours and 22 languages exceeding 500 hours of high-quality speech data.
 
@@ -64,11 +64,10 @@ pip install -r requirements.txt # If requirements.txt exists, or pip install . i
 If you use the EuroSpeech dataset, this toolkit, or our processing methodologies in your research, please cite our paper:
 
 ```bibtex
-@article{pfisterer2025eurospeech,
+@inproceedings{pfisterereurospeech,
   title={EuroSpeech: A Multilingual Speech Corpus},
-  author={Samuel Pfisterer and Florian Grötschla and Luca Lanzendörfer and Florian Yan and Roger Wattenhofer},
-  journal={TBD}, % To Be Determined - Replace with actual arXiv ID or conference proceedings
-  year={TBD} % To Be Determined - Or the actual year of publication
+  author={Pfisterer, Samuel and Gr{\"o}tschla, Florian and Lanzend{\"o}rfer, Luca A and Yan, Florian and Wattenhofer, Roger},
+  booktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems Datasets and Benchmarks Track}
 }
 ```
 
